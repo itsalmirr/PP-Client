@@ -1,9 +1,7 @@
-import SignIn from '@/components/SignIn'
-
 const Home = () => {
   return (
     <div>
-      <SignIn />
+      <h1>Home Page</h1>
     </div>
   )
 }

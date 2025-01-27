@@ -1,9 +1,18 @@
-const SignIn = () => {
+import Link from 'next/link'
+
+interface SignInProps {
+  title: string
+  actionTitle: string
+  haveAccount: string
+  linkTo: string
+}
+
+const Auth = ({ title, actionTitle, haveAccount, linkTo }: SignInProps) => {
   return (
     <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
       <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
         <h2 className='mt-10 text-center text-2xl/9 font-bold tracking-tight text-white'>
-          Sign in
+          {title}
         </h2>
       </div>
 
@@ -68,17 +77,17 @@ const SignIn = () => {
         </form>
 
         <p className='mt-10 text-center text-sm/6 text-gray-400'>
-          Don&apos;t have an account?{' '}
-          <a
-            href='#'
+          {haveAccount}{' '}
+          <Link
+            href={linkTo}
             className='font-semibold text-cyan-400 hover:text-cyan-300'
           >
-            Register here
-          </a>
+            {actionTitle}
+          </Link>
         </p>
       </div>
     </div>
   )
 }
 
-export default SignIn
+export default Auth
